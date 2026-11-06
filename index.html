@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070b18" />
+  <title>NEON GRID — AI Smart City 2035</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="scene-wrap" aria-label="Interactive 3D smart city. Drag to rotate, scroll to zoom, click a building for details.">
+      <canvas id="city-canvas"></canvas>
+      <div class="vignette"></div>
+      <div class="scanlines"></div>
+    </div>
+
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Neon Grid home"><span class="brand-mark">N<span>G</span></span><span class="brand-name">NEON<span>GRID</span><small>SMART CITY / 2035</small></span></a>
+      <div class="top-status"><span class="live-dot"></span> SYSTEM ONLINE <span class="status-divider">/</span> AI CORE v4.8</div>
+      <div class="top-actions"><button id="daynight" class="icon-btn" title="Toggle day/night"><span id="day-icon">☼</span><span class="btn-label">NIGHT MODE</span></button><button id="reset-view" class="icon-btn" title="Reset camera">⌖ <span class="btn-label">RESET VIEW</span></button></div>
+    </header>
+
+    <aside class="left-rail panel">
+      <div class="eyebrow">CITY OVERVIEW <span class="tiny-line"></span></div>
+      <div class="city-title">THE FUTURE<br><span>IS CONNECTED.</span></div>
+      <p class="intro">An AI-orchestrated ecosystem where infrastructure, business and people operate as one intelligent network.</p>
+      <div class="metric-grid">
+        <div class="metric"><span class="metric-label">POPULATION</span><strong>2.4<span>M</span></strong><small>+4.2% <i>↗</i></small></div>
+        <div class="metric"><span class="metric-label">AI EFFICIENCY</span><strong>98<span>.6%</span></strong><small>OPTIMAL <i>●</i></small></div>
+        <div class="metric"><span class="metric-label">CLEAN ENERGY</span><strong id="clean-energy">84<span>%</span></strong><small>+12.8% <i>↗</i></small></div>
+        <div class="metric"><span class="metric-label">TRAFFIC FLOW</span><strong id="traffic-flow">92<span>%</span></strong><small>LOW CONGESTION <i>●</i></small></div>
+      </div>
+      <div class="rail-divider"></div>
+      <div class="eyebrow">CITY NETWORK <span class="tiny-line"></span></div>
+      <div class="network-row"><span class="network-icon">⌘</span><span>AI CORE</span><b class="online">ONLINE</b></div>
+      <div class="network-row"><span class="network-icon">⌁</span><span>DATA STREAM</span><b class="online">ACTIVE</b></div>
+      <div class="network-row"><span class="network-icon">ϟ</span><span>POWER GRID</span><b class="online">STABLE</b></div>
+      <div class="rail-footer">DRAG TO ORBIT <span>•</span> SCROLL TO ZOOM</div>
+    </aside>
+
+    <aside class="right-rail">
+      <section class="panel object-panel" id="object-panel">
+        <div class="panel-head"><span class="eyebrow">OBJECT INTELLIGENCE</span><span class="panel-index">01 / 09</span></div>
+        <div class="object-placeholder" id="object-placeholder"><div class="target-icon">⌖</div><h2>SELECT A<br>BUILDING</h2><p>Click any highlighted structure in the city to access its live intelligence profile.</p><div class="select-hint"><span class="pulse-ring"></span> AWAITING INPUT</div></div>
+        <div class="object-details hidden" id="object-details">
+          <div class="object-category" id="object-category">AI INFRASTRUCTURE</div>
+          <h2 id="object-name">AI CONTROL CENTER</h2>
+          <p id="object-description"></p>
+          <div class="object-stat"><span>OPERATIONAL STATUS</span><b id="object-status">● ONLINE</b></div>
+          <div class="object-stat"><span>AI PERFORMANCE</span><b id="object-performance">98.6%</b></div>
+          <div class="object-stat"><span>ENERGY LOAD</span><b id="object-energy">72%</b></div>
+          <div class="object-insight"><span class="insight-icon">✧</span><div><b>AI INSIGHT</b><p id="object-insight"></p></div></div>
+        </div>
+      </section>
+      <section class="panel energy-panel">
+        <div class="panel-head"><span class="eyebrow">ENERGY DISTRIBUTION</span><span class="live-tag">LIVE</span></div>
+        <div class="energy-total"><strong>1,284</strong><span> MWh <small> / DAY</small></span></div>
+        <div class="energy-bar"><span style="width:42%"></span><span style="width:26%"></span><span style="width:18%"></span><span style="width:14%"></span></div>
+        <div class="energy-legend"><span><i class="solar"></i> SOLAR <b>42%</b></span><span><i class="wind"></i> WIND <b>26%</b></span><span><i class="hydro"></i> GRID <b>18%</b></span><span><i class="storage"></i> STORAGE <b>14%</b></span></div>
+      </section>
+      <section class="panel ai-panel"><div class="panel-head"><span class="eyebrow">AI BUSINESS ANALYTICS</span><span class="trend">↗ 8.4%</span></div><div class="business-kpi"><div><small>ECONOMIC INDEX</small><strong>846.2</strong></div><div><small>PRODUCTIVITY</small><strong>+18.7%</strong></div></div><div class="sparkline"><svg viewBox="0 0 300 54" preserveAspectRatio="none"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#00e5ff" stop-opacity=".28"/><stop offset="1" stop-color="#00e5ff" stop-opacity="0"/></linearGradient></defs><path d="M0 43 L22 35 L44 38 L66 22 L88 29 L110 17 L132 24 L154 12 L176 20 L198 9 L220 16 L242 5 L264 12 L286 2 L300 7 L300 54 L0 54Z" fill="url(#area)"/><path d="M0 43 L22 35 L44 38 L66 22 L88 29 L110 17 L132 24 L154 12 L176 20 L198 9 L220 16 L242 5 L264 12 L286 2 L300 7" fill="none" stroke="#00e5ff" stroke-width="2"/></svg></div><div class="chart-foot"><span>LAST 24 HOURS</span><span>AI FORECAST: POSITIVE</span></div></section>
+    </aside>
+
+    <div class="bottom-left"><span class="coord-dot"></span> <span id="coordinates">GRID 04 : 18 : 35</span><span class="bottom-sep">|</span> TASHKENT METRO AREA · SIMULATION</div>
+    <div class="bottom-center"><span class="mouse-hint">◉</span> EXPLORE THE CITY <span class="bottom-sep">—</span> SELECT A STRUCTURE</div>
+    <div class="bottom-right"><span>RENDER ENGINE</span><b>WEBGL / THREE.JS</b></div>
+
+    <div class="toast" id="toast">CITY SYSTEMS SYNCHRONIZED</div>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
